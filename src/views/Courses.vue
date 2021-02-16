@@ -19,12 +19,18 @@
                         :tags="tags.application" 
                         v-model="activeApplicationTag" 
                     />
+                    <filter-selector 
+                        title="키워드"
+                        :tags="keywords" 
+                        v-model="activeKeyword" 
+                    />
                 </div>
                 <course-card
                     v-for="(course, i) in visibleCourses"
                     :key="i"
                     :course="course"
                     :departments="departments"
+                    :tags="tags"
                 />
             </div>
         </div>
@@ -44,12 +50,14 @@ export default {
         courses: Array,
         departments: Object,
         tags: Object,
+        keywords: Object,
     },
     data() {
         return {
             activeDepartment: null,
             activeStudentTag: null,
             activeApplicationTag: null,
+            activeKeyword: null,
         }
     },
     computed: {
@@ -58,6 +66,7 @@ export default {
                 activeDepartment,
                 activeStudentTag,
                 activeApplicationTag,
+                activeKeyword,
             } = this;
             return this.courses.filter(course => {
                 let isVisible = true
@@ -73,6 +82,13 @@ export default {
                 }
                 if (activeApplicationTag !== null) {
                     if (!course.applicationTags.includes(activeApplicationTag)) {
+                        isVisible = false
+                    }
+                }
+                if (activeKeyword !== null) {
+                    const tokens = this.keywords[activeKeyword].tokens
+                    const text = course.description.toLowerCase() + course.content.toLowerCase()
+                    if (!tokens.map(token => text.includes(token)).reduce((acc, curr) => curr || acc, false)) {
                         isVisible = false
                     }
                 }

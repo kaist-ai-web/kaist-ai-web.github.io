@@ -900,6 +900,11 @@
   resolved "https://registry.yarnpkg.com/@nodelib/fs.stat/-/fs.stat-1.1.3.tgz#2b5a3ab3f918cca48a8c754c08168e3f03eba61b"
   integrity sha512-shAmDyaQC4H92APFoIaVDHCx5bStIocgvbwQyxPRrbUY20V1EYTbSDchWbuwlMG3V17cprZhA6+78JfB+3DTPw==
 
+"@popperjs/core@^2.6.0":
+  version "2.7.0"
+  resolved "https://registry.yarnpkg.com/@popperjs/core/-/core-2.7.0.tgz#5f7760965170f7f1e2910d2498c5be88b47a2a8c"
+  integrity sha512-V3WyEc8ZyAuOQ2fpFuTuYYOd2tV4NePeSdxaHYgYAOs7ERLxlcFi2XsmgI5LJFdAUmJKXsg8jaIiVTkTHQygQw==
+
 "@soda/friendly-errors-webpack-plugin@^1.7.1":
   version "1.8.0"
   resolved "https://registry.yarnpkg.com/@soda/friendly-errors-webpack-plugin/-/friendly-errors-webpack-plugin-1.8.0.tgz#84751d82a93019d5c92c0cf0e45ac59087cd2240"
@@ -8005,6 +8010,14 @@ uuid@^3.3.2, uuid@^3.4.0:
   resolved "https://registry.yarnpkg.com/uuid/-/uuid-3.4.0.tgz#b23e4358afa8a202fe7a100af1f5f883f02007ee"
   integrity sha512-HjSDRw6gZE5JMggctHBcjVak08+KEVhSIiDzFnT9S9aegmp85S/bReBVTb4QTFaRNptJ9kuYaNhnbNEOkbKb/A==
 
+v-tooltip@^3.0.0-alpha.20:
+  version "3.0.0-alpha.20"
+  resolved "https://registry.yarnpkg.com/v-tooltip/-/v-tooltip-3.0.0-alpha.20.tgz#47760de873a171b7c2a681dd356748cb5efd4481"
+  integrity sha512-piD9IzLIZHw1QPNZ3UdBIlgE3n5ivN7UpwUgpGnwaA6xvVHRVHLbiHZ5t8dYuHcMd40Tn/pZA7DJKcYI7nNcww==
+  dependencies:
+    "@popperjs/core" "^2.6.0"
+    vue-resize "^1.0.0"
+
 v8-compile-cache@^2.0.3:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/v8-compile-cache/-/v8-compile-cache-2.2.0.tgz#9471efa3ef9128d2f7c6a7ca39c4dd6b5055b132"
@@ -8090,6 +8103,11 @@ vue-loading-overlay@^3.4.2:
   version "3.4.2"
   resolved "https://registry.yarnpkg.com/vue-loading-overlay/-/vue-loading-overlay-3.4.2.tgz#34792a83218df1d35dff50121ce9fac2114f1c38"
   integrity sha512-xcB+NPjl76eA0uggm707x3ZFgrNosZXpynHipyS3K+rrK1NztOV49R1LY+/4ij5W1KYANp7eRI2EIHrxCpmWAw==
+
+vue-resize@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/vue-resize/-/vue-resize-1.0.0.tgz#380565b36e411190d85f8fbd3aa230a4cc22f1a5"
+  integrity sha512-SkIi19neeJClapYavfmHiewFZkkTfITVWskg/dIL8b1Eb+RlvnCb8fjGUwLjQJmsw2qsRiiAo4o7BAJVM4pcOA==
 
 vue-router@^3.5.1:
   version "3.5.1"

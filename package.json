@@ -4,11 +4,12 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "vue-cli-service build && sh setup-dist.sh",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
     "core-js": "^3.6.5",
+    "v-tooltip": "^3.0.0-alpha.20",
     "vue": "^2.6.11",
     "vue-js-modal": "^2.0.0-rc.6",
     "vue-loading-overlay": "^3.4.2",

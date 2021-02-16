@@ -11,10 +11,20 @@
         </div>
         <div class="card-bottom">
             <div class="tags">
-                <div class="tag small" v-for="(tag, i) in course.studentTags" :key="i">
+                <div 
+                    class="tag small" 
+                    v-for="(tag, i) in course.studentTags" 
+                    v-tooltip="tags.student[tag].description"
+                    :key="i"
+                >
                     {{ tag }}
                 </div>
-                <div class="tag small" v-for="(tag, i) in course.applicationTags" :key="i">
+                <div 
+                    class="tag small" 
+                    v-for="(tag, i) in course.applicationTags" 
+                    v-tooltip="tags.application[tag].description"
+                    :key="i"
+                >
                     {{ tag }}
                 </div>
             </div>
@@ -74,12 +84,16 @@
 <script>
 import Vue from 'vue'
 import VModal from 'vue-js-modal'
+import VTooltip from 'v-tooltip'
+import 'v-tooltip/dist/v-tooltip.css'
+Vue.use(VTooltip)
 Vue.use(VModal)
 export default {
     name: 'course-card',
     props: {
         course: Object,
         departments: Object,
+        tags: Object,
     },
     methods: {
         showDetails() {
@@ -106,6 +120,13 @@ export default {
         float: left;
         width: 18rem;
         height: 10rem;
+    }
+    @media screen and (max-width: 48rem) {
+        .course-card {
+            float: none;
+            width: 100%;
+            max-width: 100%;
+        }
     }
     .card-top {
         position: absolute;

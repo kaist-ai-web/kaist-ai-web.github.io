@@ -2,9 +2,11 @@
     <header class="header" :class="{ 'header-scrolled': scrolled }">
         <div class="header-content">
             <div class="logo">
-                <!-- <div class="logo-drawing-container">
-                    <div class="logo-drawing" ref="logo"></div>
-                </div> -->
+                <div class="logo-drawing-container">
+                    <div class="logo-drawing" ref="logo">
+                        <img class="logo-image" src="kaist_logo.png" />
+                    </div>
+                </div>
                 <div class="logo-text">
                     KAIST<br />
                     <small>Artificial Intelligence</small>
@@ -76,7 +78,14 @@ export default {
 .logo-drawing {
     width: 2.7rem;
     height: 2.7rem;
+    padding-top: 0.6rem;
+    padding-left: 0.35rem;
     color: black;
+}
+.logo-image {
+    width: 2rem;
+    height: auto;
+    margin: auto auto;
 }
 .logo-text {
     display: block;
@@ -94,10 +103,6 @@ export default {
 }
 .header-scrolled .logo-text {
     color: var(--text-color);
-}
-.logo-image {
-    height: 2.5rem;
-    width: auto;
 }
 .header-menu {
     flex: 1 1 auto;

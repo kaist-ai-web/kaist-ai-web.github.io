@@ -13,6 +13,7 @@
               :courses="courses"
               :departments="departments"
               :tags="tags"
+              :keywords="keywords"
             />
         </section>
         <app-footer />
@@ -41,6 +42,7 @@ export default {
             courses: [],
             departments: {},
             tags: {},
+            keywords: {},
         }
     },
     created() {
@@ -59,6 +61,7 @@ export default {
             this.courses = data.courses
             this.departments = data.departments
             this.tags = data.tags
+            this.keywords = data.keywords
             this.loading = false
         },
         handleScroll() {

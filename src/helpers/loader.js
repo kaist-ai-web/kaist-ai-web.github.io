@@ -9,13 +9,15 @@ export async function loadData() {
         'Courses!A2:L',
         'Departments!A2:B',
         'Tags!A2:D',
+        'Keywords!A2:C',
     ]
     const response = await sheets.getRanges(DOC_ID, ranges)
     const valueRanges = response.valueRanges
     const courses = getCoursesFromValues(valueRanges[0].values)
     const departments = getDepartmentsFromValues(valueRanges[1].values)
     const tags = getTagsFromValues(valueRanges[2].values)
-    return { courses, departments, tags }
+    const keywords = getKeywordsFromValues(valueRanges[3].values)
+    return { courses, departments, tags, keywords }
 }
 
 function getCoursesFromValues(values) {
@@ -63,4 +65,16 @@ function getTagsFromValues(values) {
         }
     }
     return tags
+}
+
+function getKeywordsFromValues(values) {
+    const keywords = {}
+    for (let row of values) {
+        keywords[row[0]] = {
+            title: row[0],
+            tokens: (row[1] || '').split(',').map(c => c.trim()).filter(c => c !== ''),
+            color: row[2],
+        }
+    }
+    return keywords
 }
