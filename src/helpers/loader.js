@@ -23,9 +23,13 @@ export async function loadData() {
 function getCoursesFromValues(values) {
     const courses = []
     for (let row of values) {
+        const code = row[1]
+        const m = /\d{3}/g.exec(code)
+        const codenumber = m ? Number(code.slice(m.index, m.index + 3)) : 999
         courses.push({
             department: row[0],
-            code: row[1],
+            code: code,
+            codenumber: codenumber,
             title: row[2],
             instructor: row[3],
             student: row[4],

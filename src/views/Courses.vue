@@ -93,7 +93,7 @@ export default {
                     }
                 }
                 return isVisible
-            })
+            }).sort((a, b) => a.codenumber - b.codenumber)
         },
     }
 }
