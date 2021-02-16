@@ -11,6 +11,8 @@
         <section class="body-content">
             <router-view 
               :courses="courses"
+              :departments="departments"
+              :tags="tags"
             />
         </section>
         <app-footer />
@@ -37,6 +39,8 @@ export default {
             scrolled: false,
             loading: false,
             courses: [],
+            departments: {},
+            tags: {},
         }
     },
     created() {
@@ -53,6 +57,8 @@ export default {
             this.loading = true
             const data = await loader.loadData()
             this.courses = data.courses
+            this.departments = data.departments
+            this.tags = data.tags
             this.loading = false
         },
         handleScroll() {

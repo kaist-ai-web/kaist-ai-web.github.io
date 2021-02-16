@@ -4,7 +4,7 @@
     /* Colors */
     --main-color: #444444;
     --text-color: #222222;
-    --link-color: #375eff;
+    --link-color: #000000;
     --white-color: #ffffff;
     --light-grey-color: #f8f8f8;
     --grey-color: #444444;
@@ -12,7 +12,7 @@
     --header-text-highlight-color: #ffffff;
     --header-border-color: rgba(255, 255, 255, 0.15);
     --header-bg-color: rgba(0, 0, 0, 0.9);
-    --header-scrolled-bg-color: rgba(255, 255, 255, 0.9);
+    --header-scrolled-bg-color: rgba(192, 192, 192, 0.9);
     /* Measures */
     --max-width: 75rem;
     --mobile-max-width: 48rem;
@@ -53,6 +53,18 @@ body {
     padding: 1.5rem 0;
 }
 
+.v-tiny-padded {
+    padding: 0.5rem 0;
+}
+
+.row-label {
+    margin: 0;
+    padding: 0 0 0.5rem 0;
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--main-color);
+}
+
 .row-title {
     margin: 0;
     padding: 0 0 2rem 0;
@@ -79,11 +91,18 @@ body {
 .tag {
     display: inline-block;
     background-color: #444;
-    padding: 4px 4px;
+    padding: 0.3rem 0.5rem;
     border-radius: 3px;
     color: #fff;
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     font-weight: bold;
+}
+
+.tag.small {
+    padding: 0.1rem 0.2rem;
+    margin: 0 0.1rem 0.1rem 0;
+    font-size: 0.65rem;
+    font-weight: normal;
 }
 
 .card-button {

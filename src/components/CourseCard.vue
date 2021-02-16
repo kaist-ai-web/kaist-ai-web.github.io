@@ -2,22 +2,96 @@
     <div class="course-card">
         <div class="card-top">
             <div class="department">
-                <div class="tag">{{ course.department }}</div>
+                <div class="tag" :style="departmentTagStyle">
+                    {{ course.department }}
+                </div>
             </div>
             <div class="title">{{ course.title }}</div>
+            <div class="code">{{ course.code }}</div>
         </div>
         <div class="card-bottom">
+            <div class="tags">
+                <div class="tag small" v-for="(tag, i) in course.studentTags" :key="i">
+                    {{ tag }}
+                </div>
+                <div class="tag small" v-for="(tag, i) in course.applicationTags" :key="i">
+                    {{ tag }}
+                </div>
+            </div>
             <div class="instructor">{{ course.instructor }}</div>
-            <a class="card-button small full-width">See more</a>
+            <a 
+                class="card-button small full-width" 
+                @click="showDetails"
+            >
+                자세히 보기
+            </a>
         </div>
+        <modal :name="`modal-${course.title}`" class="modal">
+            <div class="modal-content">
+                <div class="department">
+                    <div class="tag" :style="departmentTagStyle">{{ course.department }}</div>
+                </div>
+                <div class="title">{{ course.title }}</div>
+                <div class="code">{{ course.code }}</div>
+                <div class="instructor">{{ course.instructor }}</div>
+                <div class="contents">
+                    <div class="label">
+                        대상 학생
+                    </div>
+                    <div class="text">
+                        {{ course.student }}
+                    </div>
+                    <div class="label">
+                        과목의 취지
+                    </div>
+                    <div class="text">
+                        {{ course.description }}
+                    </div>
+                    <div class="label">
+                        학습 내용
+                    </div>
+                    <div class="text">
+                        {{ course.content }}
+                    </div>
+                    <div class="label">
+                        권장 선수과목
+                    </div>
+                    <div class="text">
+                        {{ course.prerequisite }}
+                    </div>
+                    <div class="label">
+                        비고
+                    </div>
+                    <div class="text">
+                        {{ course.misc }}
+                    </div>
+                </div>
+            </div>
+        </modal>
     </div>
 </template>
 
 <script>
+import Vue from 'vue'
+import VModal from 'vue-js-modal'
+Vue.use(VModal)
 export default {
     name: 'course-card',
     props: {
         course: Object,
+        departments: Object,
+    },
+    methods: {
+        showDetails() {
+            this.$modal.show(`modal-${this.course.title}`)
+        }
+    },
+    computed: {
+        departmentTagStyle() {
+            return {
+                backgroundColor: (this.departments[this.course.department] || {}).color || '#444'
+            }
+        }
     }
 }
 </script>
@@ -25,7 +99,7 @@ export default {
 <style scoped>
     .course-card {
         position: relative;
-        margin: 0.25rem;
+        margin: 0 0.5rem 0.5rem 0;
         background-color: #fff;
         border: 2px solid #ddd;
         border-radius: 4px; 
@@ -57,12 +131,42 @@ export default {
         font-weight: bold;
         padding-bottom: 0.25rem;
     }
+    .code {
+        font-size: 0.6rem;
+        color: #666;
+        font-weight: bold;
+        padding-bottom: 0.25rem;
+    }
     .instructor {
         font-size: 0.8rem;
         color: #666;
         padding-bottom: 0.25rem;
     }
-    .button {
-
+    .modal /deep/ .vm--modal {
+        top: 5rem !important;
+        max-height: calc(100% - 10rem);
+        height: auto !important;
+    }
+    .modal-content {
+        background-color: #fff;
+        padding: 0.8rem;
+        width: 100%;
+        height: 100%;
+        overflow-y: auto;
+    }
+    .contents {
+        padding: 0.5rem 0;
+    }
+    .label {
+        font-size: 0.8rem;
+        font-weight: bold;
+        color: #444;
+        padding-bottom: 0.3rem;
+    }
+    .text {
+        font-size: 0.8rem;
+        line-height: 1rem;
+        color: #444;
+        padding-bottom: 0.6rem;
     }
 </style>
