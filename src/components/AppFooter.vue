@@ -4,20 +4,19 @@
             <div class="footer-inner">
                 <div class="footer-item">
                     <div class="footer-text">
-                        &copy; Copyright {{(new Date()).getFullYear()}} | Users &amp; Information Lab.
+                        &copy; Copyright {{(new Date()).getFullYear()}} | KAIST 
                     </div>
                     <div class="footer-text">
-                        U&I Lab., Room 4417, E3-1 Computer Science Building,<br />
                         KAIST, 291 Daehak-ro, Yuseong-gu, Daejeon 34141, South Korea
                     </div>
                 </div>
                 <div class="footer-item">
                     <div class="footer-text">
-                        <a href="https://github.com/uilab-github/uilab-github.github.io">
+                        <a href="https://github.com/kaist-ai-web/kaist-ai-web.github.io">
                             Repository for this Website
                         </a>
                         &nbsp;|&nbsp;
-                        <a href="https://docs.google.com/spreadsheets/d/1v2JBn1EHa20kcwz5rtszoNmjx9Znqzk-dGMhKw1m3vE/edit?usp=sharing">
+                        <a href="https://docs.google.com/spreadsheets/d/1gz4QcnYhpqOpFjQoOktKb_E9-hfBGdA45y-M6OIQnM4/edit?usp=sharing">
                             Edit Content
                         </a>
                     </div>

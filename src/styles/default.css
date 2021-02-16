@@ -2,7 +2,7 @@
 
 :root {
     /* Colors */
-    --main-color: #21358b;
+    --main-color: #444444;
     --text-color: #222222;
     --link-color: #375eff;
     --white-color: #ffffff;
@@ -65,11 +65,53 @@ body {
     background-color: var(--light-grey-color);
 }
 
+.row.grey {
+    background-color: var(--light-grey-color);
+}
+
 .container {
     margin: 0 auto;
     padding: 0 0.5rem;
     max-width: var(--max-width);
     overflow: auto;
+}
+
+.tag {
+    display: inline-block;
+    background-color: #444;
+    padding: 4px 4px;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 0.8rem;
+    font-weight: bold;
+}
+
+.card-button {
+    display: inline-block;
+    padding: 0.3rem 0.5rem;
+    margin-right: 0.15rem;
+    border-radius: 4px;
+    background-color: var(--main-color);
+    color: var(--white-color);
+    text-decoration: none;
+    font-size: 0.7rem;
+    cursor: pointer;
+    transition: all 0.5s ease;
+}
+
+.card-button.full-width {
+    display: block;
+    text-align: center;
+}
+
+.card-button.small {
+    padding: 0.25rem 0.25rem;
+    font-size: 0.6rem;
+    border-radius: 2px;
+}
+
+.card-button:hover {
+    background-color: var(--link-color);
 }
 
 .row-card-item {

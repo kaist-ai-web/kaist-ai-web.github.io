@@ -10,7 +10,7 @@
         <app-header :scrolled="scrolled" :loading="loading" />
         <section class="body-content">
             <router-view 
-              text="text"
+              :courses="courses"
             />
         </section>
         <app-footer />

@@ -6,7 +6,7 @@ sheets.setKey(API_KEY)
 
 export async function loadData() {
     const ranges = [
-        'Courses!A1:J',
+        'Courses!A2:J',
     ]
     const response = await sheets.getRanges(DOC_ID, ranges)
     const valueRanges = response.valueRanges
