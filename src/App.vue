@@ -1,22 +1,68 @@
 <template>
-  <div id="app">
-      <router-view 
-        text="text"
-      />
-  </div>
+    <div id="app">
+        <loading 
+            :active="loading"
+            color="#fff"
+            :height="64"
+            :width="64"
+            background-color="#000"
+        ></loading>
+        <app-header :scrolled="scrolled" :loading="loading" />
+        <section class="body-content">
+            <router-view 
+              text="text"
+            />
+        </section>
+        <app-footer />
+    </div>
 </template>
 
 <script>
 import '@/styles/default.css'
+import 'vue-loading-overlay/dist/vue-loading.css'
+import AppHeader from '@/components/AppHeader.vue'
+import AppFooter from '@/components/AppFooter.vue'
+import Loading from 'vue-loading-overlay'
+import * as loader from '@/helpers/loader.js'
 
 export default {
     name: 'App',
     components: {
-
+        AppHeader,
+        AppFooter,
+        Loading,
     },
     data() {
         return {
-            text: 'Text data'
+            scrolled: false,
+            loading: false,
+            courses: [],
+        }
+    },
+    created() {
+        this.loadData()
+    },
+    mounted() {
+        window.addEventListener("scroll", this.handleScroll)
+    },
+    beforeDestroy() {
+        window.removeEventListener("scroll", this.handleScroll)
+    },
+    methods: {
+        async loadData() {
+            this.loading = true
+            const data = await loader.loadData()
+            this.courses = data.courses
+            this.loading = false
+        },
+        handleScroll() {
+            const top = window.scrollY
+            const threshold = 30
+            if (!this.scrolled && top > threshold) {
+                this.scrolled = true
+            } else if (this.scrolled && top <= threshold) {
+                this.scrolled = false
+            }
         }
     }
 }

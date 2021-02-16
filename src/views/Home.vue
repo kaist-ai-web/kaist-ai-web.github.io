@@ -1,5 +1,5 @@
 <template>
-    <div class="home">
+    <div class="home header-padded">
         Hello world from Home view. ({{ text }})
     </div>
 </template>
