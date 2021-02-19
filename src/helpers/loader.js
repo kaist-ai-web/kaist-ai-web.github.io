@@ -6,7 +6,7 @@ sheets.setKey(API_KEY)
 
 export async function loadData() {
     const ranges = [
-        'Courses!A2:L',
+        'AI Courses!A2:L',
         'Departments!A2:B',
         'Tags!A2:D',
         'Keywords!A2:C',
@@ -23,23 +23,22 @@ export async function loadData() {
 function getCoursesFromValues(values) {
     const courses = []
     for (let row of values) {
-        const code = row[1]
+        const code = row[2]
         const m = /\d{3}/g.exec(code)
         const codenumber = m ? Number(code.slice(m.index, m.index + 3)) : 999
         courses.push({
-            department: row[0],
+            department: row[1],
             code: code,
             codenumber: codenumber,
-            title: row[2],
-            instructor: row[3],
-            student: row[4],
-            description: row[5],
-            content: row[6],
-            prerequisite: row[7],
-            application: row[8],
-            misc: row[9],
-            studentTags: (row[10] || '').split(',').filter(c => c.trim() !== ''),
-            applicationTags: (row[11] || '').split(',').filter(c => c.trim() !== ''),
+            title: row[3],
+            instructor: row[4],
+            student: row[5],
+            description: row[6],
+            content: row[7],
+            prerequisite: row[8],
+            studentTags: (row[9] || '').split(',').filter(c => c.trim() !== ''),
+            applicationTags: (row[10] || '').split(',').filter(c => c.trim() !== ''),
+            misc: row[11],
         })
     }
     return courses
