@@ -167,6 +167,13 @@ export default {
         top: 5rem !important;
         max-height: calc(100% - 10rem);
         height: auto !important;
+        width: 38rem !important;
+        max-width: 100% !important;
+    }
+    @media screen and (max-width: 38rem) {
+        .modal /deep/ .vm--modal {
+            left: 0 !important;
+        }
     }
     .modal-content {
         background-color: #fff;
